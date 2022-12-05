@@ -1,44 +1,43 @@
+import { FormStepInputBlock } from './commons/FormStepInputBlock';
+import { FormStepTitle } from './commons/FormStepTitle';
+
 export const AddressForm = () => {
   return (
     <>
-      <h2>Address Form</h2>
+      <FormStepTitle>Address Form</FormStepTitle>
 
-      <div>
-        <label htmlFor='street'>Street: </label>
-        <input
-          autoFocus
-          type='text'
-          id='street'
-          name='street'
-        />
-      </div>
+      <FormStepInputBlock
+        isFocused
+        label='Street'
+        type='text'
+        id='street'
+        name='street'
+        placeholder='Type your address street'
+      />
 
-      <div>
-        <label htmlFor='city'>City: </label>
-        <input
-          type='text'
-          id='city'
-          name='city'
-        />
-      </div>
-
-      <div>
-        <label htmlFor='state'>State: </label>
-        <input
-          type='text'
-          id='state'
-          name='state'
-        />
-      </div>
-
-      <div>
-        <label htmlFor='zipCode'>Zip Code: </label>
-        <input
-          type='text'
-          id='zipCode'
-          name='zipCode'
-        />
-      </div>
+      <FormStepInputBlock
+        label='City'
+        type='text'
+        id='city'
+        name='city'
+        placeholder='Type your address city'
+      />
+      
+      <FormStepInputBlock
+        label='City'
+        type='text'
+        id='state'
+        name='state'
+        placeholder='Type your address state'
+      />
+      
+      <FormStepInputBlock
+        label='Zip Code'
+        type='text'
+        id='zipcode'
+        name='zipcode'
+        placeholder='Type your address zip code'
+      />
     </>
   );
 };

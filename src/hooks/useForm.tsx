@@ -1,6 +1,6 @@
 import { useRecoilState } from 'recoil';
 
-import { stepsInitialState } from '../assets/atoms';
+import { stepsInitialState } from '../utils/atoms';
 
 export const useMultistepForm = (steps: JSX.Element[]) => {
   const [currentStep, setCurrentStep] = useRecoilState(stepsInitialState);
@@ -20,10 +20,13 @@ export const useMultistepForm = (steps: JSX.Element[]) => {
   };
 
   return {
+    steps,
     currentStep,
     currentComponent: steps[currentStep],
     goTo,
     nextStep,
     previousStep,
+    isFirstStep: currentStep === 0,
+    isFinalStep: currentStep === steps.length -1
   };
 };

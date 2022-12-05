@@ -13,5 +13,7 @@ export type FormStepInputBlockProps = {
   type: string;
   id: string;
   name: string;
+  placeholder: string;
   isFocused?: boolean;
+  isPassword?: boolean;
 };

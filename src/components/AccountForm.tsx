@@ -1,26 +1,27 @@
+import { FormStepInputBlock } from "./commons/FormStepInputBlock";
+import { FormStepTitle } from "./commons/FormStepTitle";
+
 export const AccountForm = () => {
   return (
     <>
-      <h2>Account Form</h2>
+      <FormStepTitle>Account Form</FormStepTitle>
 
-      <div>
-        <label htmlFor='email'>Email: </label>
-        <input
-          autoFocus
-          type='text'
-          id='email'
-          name='email'
-        />
-      </div>
+      <FormStepInputBlock
+        isFocused
+        label='Email'
+        type='email'
+        id='email'
+        name='email'
+        placeholder='Type your best email'
+      />
 
-      <div>
-        <label htmlFor='password'>Password: </label>
-        <input
-          type='text'
-          id='password'
-          name='password'
-        />
-      </div>
+      <FormStepInputBlock
+        label='Password'
+        type='password'
+        id='password'
+        name='password'
+        placeholder='Type your password'
+      />
     </>
   );
 };

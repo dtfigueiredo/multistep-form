@@ -1,7 +1,7 @@
 import { MdArrowBack, MdArrowForward } from 'react-icons/md';
 import { useRecoilState } from 'recoil';
 
-import { stepsInitialState } from '../assets/atoms';
+import { stepsInitialState } from '../utils/atoms';
 import { ControlFormButtonProps } from '../assets/types';
 
 export const FormControlButton = ({ type }: ControlFormButtonProps) => {
