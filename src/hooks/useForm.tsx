@@ -1,12 +1,29 @@
 import { useRecoilState } from 'recoil';
 
-import { stepsInitialState } from '../utils/atoms';
+import { formDataState, stepsInitialState } from '../utils/atoms';
 
 export const useMultistepForm = (steps: JSX.Element[]) => {
   const [currentStep, setCurrentStep] = useRecoilState(stepsInitialState);
+  const [formData, setFormData] = useRecoilState(formDataState)
 
-  const nextStep = () => {
-    if (currentStep >= steps.length - 1) return currentStep;
+  const nextStep = (event:any) => {
+    event.preventDefault()
+    if (currentStep >= steps.length - 1) {
+      alert('fim')
+      setCurrentStep(0)
+      setFormData({
+        firstName: '',
+        lastName: '',
+        age: '',
+        street: '',
+        city: '',
+        state: '',
+        zipCode: '',
+        email: '',
+        password: ''
+      })
+      return
+    };
     setCurrentStep(currentStep + 1);
   };
 
@@ -26,7 +43,7 @@ export const useMultistepForm = (steps: JSX.Element[]) => {
     goTo,
     nextStep,
     previousStep,
-    isFirstStep: currentStep === 0,
+    isFirstStep: currentStep < 1,
     isFinalStep: currentStep === steps.length -1
   };
 };

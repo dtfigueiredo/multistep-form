@@ -1,15 +1,13 @@
-import { useRecoilValue } from 'recoil';
-import { stepsInitialState } from './utils/atoms';
 import { AccountForm } from './components/AccountForm';
-import { FormControlButton } from './components/FormControlButton';
 import { AddressForm } from './components/AddressForm';
+import { FormControlButton } from './components/FormControlButton';
 import { UserForm } from './components/UserForm';
+import { useMultistepForm } from './hooks/useForm';
 
 export const App = () => {
-  const currentStep = useRecoilValue(stepsInitialState);
-
   const formComponents = [<UserForm />, <AddressForm />, <AccountForm />];
-  const currentComponent = formComponents[currentStep];
+  //calling the custom hook
+  const {currentComponent, currentStep, isFinalStep, isFirstStep, nextStep, previousStep} = useMultistepForm(formComponents)
 
   const stepsDisplay = `${currentStep + 1} / ${formComponents.length}`;
 
@@ -22,8 +20,8 @@ export const App = () => {
           <div>{currentComponent}</div>
 
           <div className='mt-4 flex justify-end items-center gap-4'>
-            {currentStep >= 1 && <FormControlButton type='button' />}
-            <FormControlButton type='submit' />
+            {!isFirstStep && <FormControlButton handleClick={previousStep} type='button' value='Voltar'/>}
+            <FormControlButton handleClick={nextStep} type='submit' value={isFinalStep ? 'Finalizar' : 'Avançar'}/>
           </div>
         </form>
       </div>
