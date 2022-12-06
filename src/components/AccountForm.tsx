@@ -16,7 +16,8 @@ export const AccountForm = () => {
 
       <FormStepInputBlock
         value={formData.email}
-        handleChange={(event) => handleEmail(event)}
+        handleChange={handleEmail}
+        isRequired
         isFocused
         label='Email'
         type='email'
@@ -27,7 +28,8 @@ export const AccountForm = () => {
 
       <FormStepInputBlock
         value={formData.password}
-        handleChange={(event) => handlePassword(event)}
+        handleChange={handlePassword}
+        isRequired
         label='Password'
         type='password'
         isPassword

@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export type ControlFormButtonProps = {
   type: 'button' | 'submit' | 'reset' | undefined;
-  handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  handleClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   value: string;
 };
 
@@ -18,6 +18,7 @@ export type FormStepInputBlockProps = {
   placeholder: string;
   isFocused?: boolean;
   isPassword?: boolean;
+  isRequired: boolean;
   value: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };

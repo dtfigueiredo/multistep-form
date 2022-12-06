@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { formDataState } from '../utils/atoms';
@@ -18,7 +17,8 @@ export const UserForm = () => {
 
       <FormStepInputBlock
         value={formData.firstName}
-        handleChange={(event) => handleFirstName(event)}
+        handleChange={handleFirstName}
+        isRequired
         isFocused
         label='First Name'
         type='text'
@@ -30,6 +30,7 @@ export const UserForm = () => {
       <FormStepInputBlock
         value={formData.lastName}
         handleChange={handleLastName}
+        isRequired
         label='Last Name'
         type='text'
         id='lastName'
@@ -40,6 +41,7 @@ export const UserForm = () => {
       <FormStepInputBlock
         value={formData.age}
         handleChange={handleAge}
+        isRequired
         label='Age'
         type='number'
         id='age'

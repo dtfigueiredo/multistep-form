@@ -5,7 +5,18 @@ import { useRecoilState } from 'recoil';
 import { passwordTypeState, showPassworState } from '../../utils/atoms';
 import { FormStepInputBlockProps } from '../../utils/types';
 
-export const FormStepInputBlock = ({ label, type, id, name, placeholder, isFocused, value, handleChange, isPassword }: FormStepInputBlockProps) => {
+export const FormStepInputBlock = ({
+  label,
+  type,
+  id,
+  name,
+  placeholder,
+  isFocused,
+  value,
+  handleChange,
+  isPassword,
+  isRequired,
+}: FormStepInputBlockProps) => {
   const [showPassword, setShowPassword] = useRecoilState(showPassworState);
   const [inputType, setInputType] = useRecoilState(passwordTypeState);
 
@@ -23,6 +34,7 @@ export const FormStepInputBlock = ({ label, type, id, name, placeholder, isFocus
       <div className='w-9/12 flex items-center relative'>
         <input
           autoFocus={isFocused}
+          required={isRequired}
           id={id}
           type={inputType}
           name={name}
@@ -49,6 +61,7 @@ export const FormStepInputBlock = ({ label, type, id, name, placeholder, isFocus
       <div className='w-9/12 flex items-center relative'>
         <input
           autoFocus={isFocused}
+          required={isRequired}
           id={id}
           type={type}
           name={name}

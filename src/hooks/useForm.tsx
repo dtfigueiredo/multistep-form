@@ -2,14 +2,14 @@ import { useRecoilState } from 'recoil';
 
 import { formDataState, stepsInitialState } from '../utils/atoms';
 
+//*custom hook that will be responsible for managing the step changing form
 export const useMultistepForm = (steps: JSX.Element[]) => {
   const [currentStep, setCurrentStep] = useRecoilState(stepsInitialState);
   const [formData, setFormData] = useRecoilState(formDataState);
 
-  const nextStep = (event: any) => {
-    event.preventDefault();
+  const nextStep = () => {
     if (currentStep >= steps.length - 1) {
-      alert('fim');
+      alert('Form submmited');
       setCurrentStep(0);
       setFormData({
         firstName: '',
@@ -32,18 +32,13 @@ export const useMultistepForm = (steps: JSX.Element[]) => {
     setCurrentStep(currentStep - 1);
   };
 
-  const goTo = (index: number) => {
-    setCurrentStep(index);
-  };
-
   return {
     steps,
     currentStep,
     currentComponent: steps[currentStep],
-    goTo,
     nextStep,
     previousStep,
-    isFirstStep: currentStep < 1,
+    isFirstStep: currentStep === 0,
     isFinalStep: currentStep === steps.length - 1,
   };
 };

@@ -18,7 +18,8 @@ export const AddressForm = () => {
 
       <FormStepInputBlock
         value={formData.street}
-        handleChange={(event) => handleStreet(event)}
+        handleChange={handleStreet}
+        isRequired
         isFocused
         label='Street'
         type='text'
@@ -29,7 +30,8 @@ export const AddressForm = () => {
 
       <FormStepInputBlock
         value={formData.city}
-        handleChange={(event) => handleCity(event)}
+        handleChange={handleCity}
+        isRequired
         label='City'
         type='text'
         id='city'
@@ -39,7 +41,8 @@ export const AddressForm = () => {
 
       <FormStepInputBlock
         value={formData.state}
-        handleChange={(event) => handleState(event)}
+        handleChange={handleState}
+        isRequired
         label='State'
         type='text'
         id='state'
@@ -49,7 +52,8 @@ export const AddressForm = () => {
 
       <FormStepInputBlock
         value={formData.zipCode}
-        handleChange={(event) => handleZipCode(event)}
+        handleChange={handleZipCode}
+        isRequired
         label='Zip Code'
         type='text'
         id='zipcode'
