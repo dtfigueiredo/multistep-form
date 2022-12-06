@@ -1,13 +1,14 @@
-import { useRecoilState } from "recoil";
-import { formDataState } from "../utils/atoms";
-import { FormStepInputBlock } from "./commons/FormStepInputBlock";
-import { FormStepTitle } from "./commons/FormStepTitle";
+import { useRecoilState } from 'recoil';
+
+import { formDataState } from '../utils/atoms';
+import { FormStepInputBlock } from './commons/FormStepInputBlock';
+import { FormStepTitle } from './commons/FormStepTitle';
 
 export const AccountForm = () => {
-  const [formData, setFormData] = useRecoilState(formDataState)
+  const [formData, setFormData] = useRecoilState(formDataState);
 
-  const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {setFormData({...formData, email: event.target.value})}
-  const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, password: event.target.value})
+  const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, email: event.target.value });
+  const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, password: event.target.value });
 
   return (
     <>
@@ -29,6 +30,7 @@ export const AccountForm = () => {
         handleChange={(event) => handlePassword(event)}
         label='Password'
         type='password'
+        isPassword
         id='password'
         name='password'
         placeholder='Type your password'

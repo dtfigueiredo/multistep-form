@@ -3,11 +3,18 @@ import { MdArrowBack, MdArrowForward } from 'react-icons/md';
 import { ControlFormButtonProps } from '../utils/types';
 
 export const FormControlButton = ({ type, handleClick, value }: ControlFormButtonProps) => {
-  const PreviousBtn = () => <><MdArrowBack /> {value}</>
-  const NextBtn = () => <><MdArrowForward /> {value}</>
+  const PreviousBtn = () => (
+    <>
+      <MdArrowBack /> {value}
+    </>
+  );
+  const NextBtn = () => (
+    <>
+      <MdArrowForward /> {value}
+    </>
+  );
 
-  const buttonValue =
-    type === 'button' ? <PreviousBtn/> : <NextBtn />
+  const buttonValue = type === 'button' ? <PreviousBtn /> : <NextBtn />;
 
   return (
     <button

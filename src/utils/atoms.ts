@@ -7,8 +7,8 @@ export const stepsInitialState = atom<number>({
 });
 
 export const formDataState = atom<formDataValuesProps>({
-  key:'formDataKey',
-  default:{
+  key: 'formDataKey',
+  default: {
     firstName: '',
     lastName: '',
     age: '',
@@ -17,6 +17,16 @@ export const formDataState = atom<formDataValuesProps>({
     state: '',
     zipCode: '',
     email: '',
-    password: ''
-  }
-})
+    password: '',
+  },
+});
+
+export const showPassworState = atom<boolean>({
+  key: 'showPasswordKey',
+  default: false,
+});
+
+export const passwordTypeState = atom<string>({
+  key: 'passwordTypeKey',
+  default: '',
+});

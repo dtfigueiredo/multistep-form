@@ -6,8 +6,9 @@ import { useMultistepForm } from './hooks/useForm';
 
 export const App = () => {
   const formComponents = [<UserForm />, <AddressForm />, <AccountForm />];
-  //calling the custom hook
-  const {currentComponent, currentStep, isFinalStep, isFirstStep, nextStep, previousStep} = useMultistepForm(formComponents)
+  //*calling the custom hook
+  const { currentComponent, currentStep, isFinalStep, isFirstStep, nextStep, previousStep } =
+    useMultistepForm(formComponents);
 
   const stepsDisplay = `${currentStep + 1} / ${formComponents.length}`;
 
@@ -20,8 +21,18 @@ export const App = () => {
           <div>{currentComponent}</div>
 
           <div className='mt-4 flex justify-end items-center gap-4'>
-            {!isFirstStep && <FormControlButton handleClick={previousStep} type='button' value='Voltar'/>}
-            <FormControlButton handleClick={nextStep} type='submit' value={isFinalStep ? 'Finalizar' : 'Avançar'}/>
+            {!isFirstStep && (
+              <FormControlButton
+                handleClick={previousStep}
+                type='button'
+                value='Voltar'
+              />
+            )}
+            <FormControlButton
+              handleClick={nextStep}
+              type='submit'
+              value={isFinalStep ? 'Finalizar' : 'Avançar'}
+            />
           </div>
         </form>
       </div>
